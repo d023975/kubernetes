@@ -1,0 +1,99 @@
+Locally
+=======
+
+https://ubuntu.com/kubernetes/install
+ - Single node with MicroK8s - https://ubuntu.com/kubernetes/install#single-node
+
+
+microk8s.kubectl
+
+If you would like to use the MicroK8s kubectl and .kubeconfig file locally, you can do the following:
+
+snap alias microk8s.kubectl kubectl
+microk8s.kubectl config view --raw > $HOME/.kube/config
+
+https://microk8s.io/docs
+
+
+Azure
+=====
+https://ubuntu.com/kubernetes/install#multi-node
+
+https://azure.microsoft.com/en-us/services/kubernetes-service/
+https://azure.microsoft.com/en-us/services/container-registry/
+
+[
+https://docs.microsoft.com/en-us/azure/container-registry/
+https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli
+]
+
+
+------------------------------
+Insgesamt besteht ein Kubernetes Cluster vereinfacht betrachtet aus folgenden Kompo-
+nenten:
+
+API-Server
+Der Application Programming Interface (API)-Server ist die zentrale Administrati-
+onskomponente zur Verwaltung der Clusterobjekte. Dabei nimmt er alle Anfragen
+an, die beispielsweise mittels der kubectl-CLI oder anderer Graphical User Inter-
+face (GUI)-Lösungen an die REST-API des Servers gesendet wurden. Anschließend
+validiert und verarbeitet er diese. Zudem beinhaltet er alle Definitionen der Kuber-
+netes Objekte und stellt diese bereit. 
+ 
+Controller Manager
+Der Controller Manager übernimmt clusterweite Aufgaben, wie beispielsweise die
+Sicherstellung der definierten Anzahl an replizierten Pods, die Überwachung der
+Worker Nodes, sowie Gegenmaßnahmen bei einem Ausfall eines Knotens. 
+ 
+Scheduler
+Der Scheduler ist zuständig für die Zuweisung der Pod-Instanzen auf die Worker Nodes.
+Hierbei versucht er die aktuellen Workloads der Worker Nodes mittels deren freien
+Ressourcenkapazitäten zu optimieren.
+
+etcd
+Der zentrale Key-Value Store etcd dient der persistenten Sicherung der Clusterkon-
+figurationen und des aktuellen Zustandes des API-Servers.
+
+kubelet
+Der kubelet-Service fungiert als Kommunikations- und Steuerungsschnittstelle der
+Worker Nodes für den API-Server. Dabei sorgt er für die Bereitstellung der Kubernetes-
+Objekte in der lokalen Container-Runtime, wie beispielsweise Docker.  
+
+kube-proxy
+Der Kube-Proxy kümmert sich um die “Clusterweite, interne Bereitstellung von Ser-
+vices [. . . ] und um die Annahmen und Weiterleitung von der Außenwelt eingehender
+Requests“.
+
+see kubernetes.png
+
+https://github.com/gardener
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
